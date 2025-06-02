@@ -1,0 +1,108 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 70% 10%; /* #031D44 */
+  --foreground: 210 40% 98%; /* Light gray/white for text */
+  --card: 210 70% 13%; /* Slightly lighter than background */
+  --card-foreground: 210 40% 98%;
+  --popover: 210 70% 10%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217 91% 60%; /* A vibrant blue for accents */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 70% 20%; /* Darker shade for secondary elements */
+  --secondary-foreground: 210 40% 98%;
+  --muted: 210 70% 25%;
+  --muted-foreground: 210 20% 65%; /* Lighter muted text */
+  --accent: 210 70% 20%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 210 70% 20%;
+  --input: 210 70% 15%; /* Input background */
+  --ring: 217 91% 70%; /* Ring for focus, lighter blue */
+  --radius: 0.75rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, #8A2BE2 100%); /* Blue to Purple */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, #5A67D8 100%); /* Shades of blue */
+}
+
+.glass-effect {
+  background: rgba(var(--foreground-rgb), 0.05); /* Use foreground with low opacity */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--foreground-rgb), 0.1);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, #02132B 50%, #010A1F 100%); /* Darker shades of the base */
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background-color: hsl(var(--card) / 1.1); /* Slightly lighten card on hover */
+}
+
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from { box-shadow: 0 0 15px hsl(var(--primary) / 0.4); }
+  to { box-shadow: 0 0 30px hsl(var(--primary) / 0.7); }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure inputs are readable */
+input[type="text"], input[type="email"], textarea {
+  background-color: hsl(var(--input));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
